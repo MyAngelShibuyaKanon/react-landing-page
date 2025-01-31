@@ -8,8 +8,10 @@ import { FaLinkedin } from "react-icons/fa";
 export default function App() {
   return (
     <div>
-      <NavBar />
-      <Hero/>
+      <div>
+        <NavBar />
+        <Hero/>
+      </div>
       <Posts>
         <Post/>
         <Post/>
@@ -68,8 +70,8 @@ function Post(){
 
 function NavBar(){
   return(
-    <nav className='right-0 fixed top-0 py-[1rem] justify-left  bg-white'>
-      <NavMobile className='max-lg:visible hidden' />
+    <nav className='right-0 sticky top-0 py-[1rem] justify-left  bg-white'>
+      <NavMobile />
       <NavDesktop />
     </nav>
   )
@@ -118,7 +120,7 @@ function ContentList() {
 
 function NavDesktop() {
   return(
-    <nav className='right-0 fixed top-0 py-[1rem] justify-left bg-white max-lg:hidden visible'>
+    <nav className='right-0  top-0  justify-left bg-white max-lg:hidden visible'>
       <div className='flex flex-row  text-xl font-bold justify-end gap-[2rem] w-[90vw] mx-[5vw]'> 
         <a>Skibdi</a>
         <a>Skibdi</a>
@@ -142,7 +144,7 @@ function NavMobile() {
   console.log(isOpen)
   if (isOpen){
     return (
-      <div className='flex flex-col p-0' onMouseLeave={handleMouseLeave} >
+      <div className='flex-col p-0 max-lg:flex hidden' onMouseLeave={handleMouseLeave} >
         <div className='flex w-[90vw] mx-[5vw] justify-end' >
           <button className='inline-block h-[4.5vh] w-[4.5vh] m-[.5vh] ' onClick={handleMouseLeave}>
             <div className='h-1 m-1 w-full bg-black translate-y-[8px] rotate-45'></div>
@@ -150,7 +152,7 @@ function NavMobile() {
             <div className='h-1 m-1 w-full bg-black -translate-y-[8px] -rotate-45'></div>
           </button>
         </div>
-        <div className='flex flex-col p-0'>
+        <div className=' flex-col p-0 '>
           <a className='w-full text-2xl p-[1rem] text-center hover:bg-gray-300 hover:text-white'>Skibdi</a>
           <a className='w-full text-2xl p-[1rem] text-center hover:bg-gray-300 hover:text-white'>Skibdi</a>
           <a className='w-full text-2xl p-[1rem] text-center hover:bg-gray-300 hover:text-white'>Skibdi</a>
@@ -160,7 +162,7 @@ function NavMobile() {
   }
   else{
     return (
-      <div className='flex w-[90vw] mx-[5vw] justify-end' >
+      <div className=' w-[90vw] mx-[5vw] justify-end max-lg:flex hidden' >
         <button className='inline-block h-[4.5vh] w-[4.5vh] m-[.5vh] ' onClick={handleMouseEnter}>
           <div className='h-1 m-1 w-full bg-black '></div>
           <div className='h-1 m-1 w-full bg-black'></div>
